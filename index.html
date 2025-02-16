@@ -21,6 +21,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            position: relative;
         }
         .warning {
             font-size: 16px;
@@ -44,7 +45,8 @@
         }
         .header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-top: 120px; /* Başlık aşağı itildi */
+            margin-bottom: 40px;
         }
         .header h1 {
             font-size: 28px;
@@ -59,6 +61,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            margin-top: 20px; /* Butonlar aşağı kaydırıldı */
         }
         .platform {
             width: 250px;
@@ -91,7 +94,16 @@
         .instagram { border-color: #E4405F; background-color: #E4405F; }
         .tiktok { border-color: #00F2EA; background-color: #00F2EA; }
         .twitter { border-color: #1DA1F2; background-color: #1DA1F2; }
-        .tiktok img { width: 80px; height: 80px; } /* TikTok logosu daha da büyütüldü */
+.youtube img {
+    width: 60px;  /* Genişlik */
+    height: 40px; /* Yükseklik */
+}
+        .youtube {
+    border-color: #FF0000; 
+    background-color: #fff; /* İç kısım beyaz yapıldı */
+    color: #FF0000; /* Yazı kırmızı yapıldı */
+}
+        .tiktok img { width: 80px; height: 80px; } /* TikTok logosu büyütüldü */
         .tiktok span { color: black; } /* TikTok yazısı siyah yapıldı */
 
         .contact-container {
@@ -140,6 +152,10 @@
         <div class="platform twitter" onclick="window.location.href='twitter.html'">
             <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="Twitter">
             Twitter
+        </div>
+        <div class="platform youtube" onclick="window.location.href='youtube.html'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube">
+            YouTube
         </div>
     </div>
 
