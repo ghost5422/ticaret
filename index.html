@@ -5,28 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sosyal Medya Hizmetleri</title>
 
-    <!-- Open Graph Meta Etiketleri (Link Önizleme İçin) -->
-    <meta property="og:title" content="Sosyal Medya Hizmetleri">
-    <meta property="og:description" content="Instagram, TikTok ve Twitter hizmetleri burada! Hemen ulaşın.">
-    <meta property="og:image" content="https://i.hizliresim.com/apv5u5i.png"> <!-- SADECE ÖNİZLEME İÇİN -->
-    <meta property="og:url" content="https://seninsiten.com">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter (X) Önizleme -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sosyal Medya Hizmetleri">
-    <meta name="twitter:description" content="Instagram, TikTok ve Twitter hizmetleri burada!">
-    <meta name="twitter:image" content="https://i.hizliresim.com/apv5u5i.png"> <!-- SADECE ÖNİZLEME İÇİN -->
-
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', Arial, sans-serif;
         }
         body {
-            background-color: #f0f2f5;
+            background-color: #000;
+            color: #fff;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -34,143 +22,112 @@
             min-height: 100vh;
             padding: 20px;
         }
-        /* Logo */
-        .logo-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .logo-container img {
-            width: 120px; /* Logonun boyutunu ayarlayabilirsin */
-            height: auto;
-            display: none; /* Logo sadece önizlemede görünsün diye gizlendi */
-        }
-        /* Uyarı Yazısı */
         .warning {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: bold;
             color: red;
             border: 2px solid red;
-            padding: 10px;
+            padding: 12px;
             border-radius: 10px;
             animation: blink 1s infinite alternate;
             position: absolute;
-            top: 10px;
-            background-color: white;
+            top: 20px;
+            background-color: #fff;
+            width: 80%;
+            text-align: center;
+            color: black;
         }
         @keyframes blink {
             0% { opacity: 1; }
             50% { opacity: 0.5; }
             100% { opacity: 1; }
         }
-        /* İletişim Butonu */
-        .contact-container {
-            text-align: center;
-            margin-bottom: 20px;
-            margin-top: 50px;
-        }
-        .contact {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-            cursor: pointer;
-            text-decoration: none;
-            padding: 15px 20px;
-            border-radius: 10px;
-            background-color: #E4405F;
-            border: 3px solid #ff0000;
-            animation: glow 1s infinite alternate;
-        }
-        .contact img {
-            width: 30px;
-            height: 30px;
-        }
-        @keyframes glow {
-            0% { box-shadow: 0 0 5px red; }
-            100% { box-shadow: 0 0 15px red; }
-        }
-        /* Sayfa Başlığı */
         .header {
             text-align: center;
             margin-bottom: 20px;
         }
         .header h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
-            color: #333;
+            color: #fff;
         }
         .header p {
-            font-size: 14px;
-            color: #555;
+            font-size: 16px;
+            color: #bbb;
         }
-        /* Platform Butonları */
         .container {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
         .platform {
-            width: 220px;
-            height: 100px;
+            width: 250px;
+            height: 80px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 3px solid;
-            border-radius: 15px;
-            color: black;
-            font-size: 16px;
+            border: 2px solid #444;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 18px;
             font-weight: bold;
             text-transform: uppercase;
             text-align: center;
-            background-color: transparent;
+            background: #111;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s;
+            box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
         }
         .platform:hover {
-            background-color: rgba(0, 0, 0, 0.1);
+            background: #222;
+            transform: scale(1.05);
+            box-shadow: 3px 3px 15px rgba(255, 255, 255, 0.2);
         }
         .platform img {
             margin-right: 10px;
+            width: 50px;
+            height: 50px;
         }
-        .instagram { border-color: #E4405F; }
-        .tiktok { border-color: #000000; }
-        .twitter { border-color: #1DA1F2; }
+        .instagram { border-color: #E4405F; background-color: #E4405F; }
+        .tiktok { border-color: #00F2EA; background-color: #00F2EA; }
+        .twitter { border-color: #1DA1F2; background-color: #1DA1F2; }
+        .tiktok img { width: 80px; height: 80px; } /* TikTok logosu daha da büyütüldü */
+        .tiktok span { color: black; } /* TikTok yazısı siyah yapıldı */
 
-        /* Özel logo boyutları */
-        .instagram img { width: 50px; height: 50px; }
-        .tiktok img { width: 90px; height: 90px; }
-        .twitter img { width: 45px; height: 60px; }
+        .contact-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .contact {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            background-color: #0077cc;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 2px 2px 10px rgba(0, 119, 204, 0.4);
+        }
+        .contact:hover {
+            background-color: #005fa3;
+            box-shadow: 2px 2px 15px rgba(0, 95, 163, 0.5);
+        }
     </style>
 </head>
 <body>
 
-    <!-- Logo (Site İçinde Görünmüyor) -->
-    <div class="logo-container">
-        <img src="https://i.hizliresim.com/apv5u5i.png" alt="Site Logosu">
-    </div>
-
-    <!-- Uyarı Mesajı -->
     <p class="warning">
-        Takipçiler 5-10 dakika arasında gelmektedir. Gizli hesaplarınızı gönderim bitene kadar açmanız gerekir.
+        Takipçiler 5-10 dakika arasında gelmektedir. Hesabınız gizli olmamalıdır, gizli hesaplar takipçi almayacaktır.
     </p>
 
-    <!-- İletişim Butonu -->
-    <div class="contact-container">
-        <a class="contact" href="https://www.instagram.com/trakyali_pitbul" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-            Buradan bana ulaşabilirsiniz
-        </a>
-    </div>
-
-    <!-- Sayfa Başlığı -->
     <div class="header">
         <h1>Sosyal Medya Hizmetlerimiz</h1>
-        <p>Hizmet almak istediğiniz sosyal medyaya tıklayıp paketleri görüntüleyebilirsiniz.</p>
+        <p>Hizmet almak istediğiniz sosyal medya platformunu seçerek paketleri görüntüleyebilirsiniz.</p>
     </div>
 
-    <!-- Sosyal Medya Platformları -->
     <div class="container">
         <div class="platform instagram" onclick="window.location.href='instagram.html'">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
@@ -178,12 +135,18 @@
         </div>
         <div class="platform tiktok" onclick="window.location.href='tiktok.html'">
             <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
-            TikTok
+            <span>TikTok</span>
         </div>
         <div class="platform twitter" onclick="window.location.href='twitter.html'">
             <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="Twitter">
             Twitter
         </div>
+    </div>
+
+    <div class="contact-container">
+        <a class="contact" href="https://www.instagram.com/trakyali_pitbul" target="_blank">
+            Bana Ulaşın
+        </a>
     </div>
 
 </body>
