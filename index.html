@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sosyal Medya Hizmetleri</title>
+
+    <!-- Open Graph Meta Etiketleri (Link Önizleme İçin) -->
+    <meta property="og:title" content="Sosyal Medya Hizmetleri">
+    <meta property="og:description" content="Instagram, TikTok ve Twitter hizmetleri burada! Hemen ulaşın.">
+    <meta property="og:image" content="https://i.hizliresim.com/apv5u5i.png"> <!-- SADECE ÖNİZLEME İÇİN -->
+    <meta property="og:url" content="https://seninsiten.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter (X) Önizleme -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sosyal Medya Hizmetleri">
+    <meta name="twitter:description" content="Instagram, TikTok ve Twitter hizmetleri burada!">
+    <meta name="twitter:image" content="https://i.hizliresim.com/apv5u5i.png"> <!-- SADECE ÖNİZLEME İÇİN -->
+
     <style>
         * {
             margin: 0;
@@ -19,6 +33,16 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+        }
+        /* Logo */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            width: 120px; /* Logonun boyutunu ayarlayabilirsin */
+            height: auto;
+            display: none; /* Logo sadece önizlemede görünsün diye gizlendi */
         }
         /* Uyarı Yazısı */
         .warning {
@@ -38,7 +62,7 @@
             50% { opacity: 0.5; }
             100% { opacity: 1; }
         }
-        /* İletişim Kutusu */
+        /* İletişim Butonu */
         .contact-container {
             text-align: center;
             margin-bottom: 20px;
@@ -121,6 +145,11 @@
     </style>
 </head>
 <body>
+
+    <!-- Logo (Site İçinde Görünmüyor) -->
+    <div class="logo-container">
+        <img src="https://i.hizliresim.com/apv5u5i.png" alt="Site Logosu">
+    </div>
 
     <!-- Uyarı Mesajı -->
     <p class="warning">
