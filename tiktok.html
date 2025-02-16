@@ -4,94 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TikTok Hizmet Paketleri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         body {
-            background-color: #1A1A1A; /* Siyah tonlarında arka plan */
+            background-color: #000; /* Siyah arka plan */
             color: #fff; /* Beyaz yazılar */
             padding: 40px;
         }
         h1 {
-            color: #FF2D55; /* TikTok kırmızı rengi */
+            color: #39FF14; /* Neon yeşil */
             font-size: 40px;
-            margin-bottom: 30px;
             text-align: center;
-            font-weight: bold;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-bottom: 3px solid #39FF14;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14; /* Neon efekti */
         }
         h2 {
-            color: #FF2D55; /* TikTok kırmızı rengi */
+            color: #39FF14; /* Neon yeşil */
             font-size: 28px;
             margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14;
         }
         .service-category {
-            background-color: #333; /* Koyu gri arka plan */
+            background-color: #111; /* Koyu gri arka plan */
             margin: 20px 0;
             padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            border-left: 5px solid #39FF14; /* Sol kenar neon yeşil */
+            box-shadow: 0 0 15px #39FF14; /* Neon efekti */
         }
         .service-item {
             font-size: 18px;
-            color: #fff; /* Beyaz yazılar */
-            margin: 15px 0;
-        }
-        .service-item span {
-            font-weight: bold;
-            color: #FF2D55; /* TikTok kırmızı renkli fiyatlar */
-        }
-        .package-title {
-            font-size: 24px;
-            font-weight: bold;
-            padding: 10px;
-            border: 2px solid #FF2D55; /* TikTok kırmızı kenarlık */
-            border-radius: 5px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        .bronze-package {
-            color: #CD7F32; /* Bronz renk */
-        }
-        .silver-package {
-            color: #C0C0C0; /* Gümüş renk */
-        }
-        .gold-package {
-            color: #FFD700; /* Altın renk */
-        }
-        .package-description {
-            color: #fff;
-            font-size: 16px;
-            margin: 10px 0;
+            margin: 20px 0;
+            font-weight: 400;
+            display: flex;
+            flex-direction: column;
         }
         .price {
             font-size: 20px;
             font-weight: bold;
-            color: #FF2D55; /* TikTok kırmızı fiyatlar */
+            color: #39FF14; /* Neon yeşil fiyat */
+            text-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14;
         }
-        .package-item {
-            display: flex;
-            justify-content: space-between;
-            margin: 15px 0;
+        /* Paket Başlıkları İçin Renkler */
+        .bronze-title {
+            color: #CD7F32; /* Bronz */
+            text-shadow: 0 0 10px #CD7F32, 0 0 20px #CD7F32;
+        }
+        .silver-title {
+            color: #C0C0C0; /* Gümüş */
+            text-shadow: 0 0 10px #C0C0C0, 0 0 20px #C0C0C0;
+        }
+        .gold-title {
+            color: #FFD700; /* Altın */
+            text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+        }
+        .package-title {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 15px;
+            border: 2px solid #39FF14;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+            background-color: #222;
+            text-transform: uppercase;
         }
         .package-description {
             font-size: 16px;
+            font-weight: normal;
+            color: #bbb;
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
         .back-button {
-            display: inline-block;
-            margin-top: 30px;
+            display: block;
+            text-align: center;
+            margin-top: 40px;
             padding: 12px 25px;
-            background-color: #FF2D55; /* TikTok kırmızı */
-            color: white;
+            background-color: #39FF14;
+            color: black;
             border-radius: 5px;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 0 15px #39FF14;
         }
         .back-button:hover {
-            background-color: #FF2D55; /* Koyu kırmızı */
+            background-color: #2ED600;
+            box-shadow: 0 0 25px #39FF14;
         }
     </style>
 </head>
@@ -99,7 +111,6 @@
 
     <h1>TikTok Hizmet Paketleri</h1>
 
-    <!-- Takipçi Kategorisi -->
     <div class="service-category">
         <h2>Takipçi</h2>
         <div class="service-item">100 Takipçi : <span class="price">80₺</span></div>
@@ -107,7 +118,6 @@
         <div class="service-item">1.000 Takipçi : <span class="price">400₺</span></div>
     </div>
 
-    <!-- Gönderi Beğeni Kategorisi -->
     <div class="service-category">
         <h2>Gönderi Beğeni</h2>
         <div class="service-item">100 Beğeni : <span class="price">15₺</span></div>
@@ -115,7 +125,6 @@
         <div class="service-item">1.000 Beğeni : <span class="price">100₺</span></div>
     </div>
 
-    <!-- Canlı Yayın İzleme Kategorisi -->
     <div class="service-category">
         <h2>Canlı Yayın İzleme</h2>
         <div class="service-item">100 İzleme (30 dakika) : <span class="price">150₺</span></div>
@@ -123,27 +132,25 @@
         <div class="service-item">1.000 İzleme (30 dakika) : <span class="price">1.200₺</span></div>
     </div>
 
-    <!-- Fenomen Paketleri Kategorisi -->
     <div class="service-category">
         <h2>Fenomen Paketler</h2>
 
         <div class="service-item">
-            <div class="package-title bronze-package">Bronz Paket <span class="price">1.000₺</span></div>
-            <p class="package-description">1.000 Türk Gerçek Takipçi, 100 Türk Gerçek Beğeni, 1.000 Türk Keşfet Etkili İzlenme, 10 Türk Gerçek Yorum, 100 Sosyal Paylaşım, 25 Video Kaydetme, 10 Arkadaşa Gönderme, 10 Favori Ekleme</p>
+            <div class="package-title bronze-title">Bronz Paket <span class="price">1.000₺</span></div>
+            <p class="package-description">1.000 Türk Gerçek Takipçi, 100 Türk Gerçek Beğeni, 1.000 Türk Keşfet İzlenme, 10 Türk Gerçek Yorum, 100 Sosyal Paylaşım, 25 Video Kaydetme, 10 Arkadaşa Gönderme, 10 Favori Ekleme</p>
         </div>
 
         <div class="service-item">
-            <div class="package-title silver-package">Silver Paket <span class="price">1.700₺</span></div>
+            <div class="package-title silver-title">Silver Paket <span class="price">1.700₺</span></div>
             <p class="package-description">2.500 Türk Gerçek Takipçi, 250 Türk Gerçek Beğeni, 2.500 Türk Keşfet İzlenme, 25 Türk Gerçek Yorum, 250 Sosyal Paylaşım, 50 Video Kaydetme, 25 Arkadaşa Gönderme, 25 Favori Ekleme</p>
         </div>
 
         <div class="service-item">
-            <div class="package-title gold-package">Gold Paket <span class="price">2.700₺</span></div>
+            <div class="package-title gold-title">Gold Paket <span class="price">2.700₺</span></div>
             <p class="package-description">5.000 Türk Gerçek Takipçi, 500 Türk Gerçek Beğeni, 5.000 Türk Keşfet İzlenme, 50 Türk Gerçek Yorum, 500 Sosyal Paylaşım, 100 Video Kaydetme, 50 Arkadaşa Gönderme, 50 Favori Ekleme</p>
         </div>
     </div>
 
-    <!-- Geri Butonu -->
     <a href="index.html" class="back-button">Ana Sayfaya Dön</a>
 
 </body>
