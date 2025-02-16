@@ -3,138 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İnstagram Hizmetleri</title>
+    <title>Instagram Hizmetleri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         body {
-            background-color: #f4f4f4; /* Açık gri arka plan */
+            background-color: #000; /* Siyah arka plan */
+            color: #fff; /* Beyaz yazılar */
             padding: 40px;
-            color: #333; /* Koyu gri yazılar */
         }
         h1 {
-            color: #C0392B; /* Kırmızı başlık */
-            font-size: 36px;
-            margin-bottom: 30px;
+            color: #ff073a; /* Neon kırmızı */
+            font-size: 40px;
             text-align: center;
-            font-weight: bold;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-bottom: 3px solid #ff073a;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a; /* Neon efekti */
         }
         h2 {
-            color: #C0392B; /* Kırmızı başlıklar */
-            font-size: 26px;
+            color: #ff073a; /* Neon kırmızı */
+            font-size: 28px;
             margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a; /* Neon efekti */
         }
         .service-category {
-            background-color: #fff; /* Beyaz arka plan */
+            background-color: #111; /* Koyu gri arka plan */
             margin: 20px 0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .service-category h3 {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #C0392B; /* Kırmızı */
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #ff073a; /* Sol kenar neon kırmızı */
+            box-shadow: 0 0 15px #ff073a; /* Neon efekti */
         }
         .service-item {
             font-size: 18px;
-            color: #333; /* Koyu gri yazı */
-            margin: 10px 0;
+            margin: 20px 0;
+            font-weight: 400;
+            display: flex;
+            flex-direction: column;
         }
-        .service-item span {
-            font-weight: bold;
-            color: #C0392B; /* Kırmızı fiyatlar için */
+        /* Paket Başlıkları İçin Renkler */
+        .bronze-title {
+            color: #cd7f32; /* Bronz */
+            text-shadow: 0 0 10px #cd7f32, 0 0 20px #cd7f32;
         }
-
-        /* Fiyatların Profesyonel Görünmesi İçin */
-        .price {
-            font-size: 20px;
-            font-weight: bold;
-            color: #000; /* Siyah fiyatlar */
+        .silver-title {
+            color: #c0c0c0; /* Gümüş */
+            text-shadow: 0 0 10px #c0c0c0, 0 0 20px #c0c0c0;
         }
-
-        /* Bronz, Silver ve Gold Paketlerinin Renkleri */
-        .bronz {
-            color: #000;  /* Siyah yazı */
-            background-color: #cd7f32;  /* Bronz */
-            padding: 8px 16px;
-            border: 2px solid #cd7f32;  /* Bronz kenarlık */
-            border-radius: 5px;
-            font-weight: bold; /* Kalın yazı */
+        .gold-title {
+            color: #ffd700; /* Altın */
+            text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
         }
-        .silver {
-            color: #000;  /* Siyah yazı */
-            background-color: #c0c0c0;  /* Gümüş */
-            padding: 8px 16px;
-            border: 2px solid #c0c0c0;  /* Gümüş kenarlık */
-            border-radius: 5px;
-            font-weight: bold; /* Kalın yazı */
-        }
-        .gold {
-            color: #000;  /* Siyah yazı */
-            background-color: #ffd700;  /* Altın */
-            padding: 8px 16px;
-            border: 2px solid #ffd700;  /* Altın kenarlık */
-            border-radius: 5px;
-            font-weight: bold; /* Kalın yazı */
-        }
-
-        /* Paket Başlıkları İçin Kenarlık */
         .package-title {
             font-size: 24px;
             font-weight: bold;
-            color: #000;
-            padding: 10px;
-            border: 2px solid #000; /* Siyah kenarlık */
+            padding: 15px;
+            border: 2px solid #ff073a;
             border-radius: 5px;
             display: inline-block;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            background-color: #222;
+            text-transform: uppercase;
         }
-
-        /* Paket Açıklamaları İçin Siyah Yazı */
         .package-description {
-            color: #000;  /* Siyah açıklamalar */
-            font-weight: normal;
             font-size: 16px;
+            font-weight: normal;
+            color: #bbb;
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
-
-        /* Fiyatı Paket Başlığının Yanında Gösterme */
-        .package-item {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 0;
-        }
-
-        .price-label {
-            font-size: 18px;
+        .price {
+            font-size: 20px;
             font-weight: bold;
+            color: #ff073a; /* Neon kırmızı */
+            text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a;
         }
-
-        /* Gold, Silver, Bronz Paket Fiyatlarını Siyah Yapmak İçin */
-        .package-title.bronz .price,
-        .package-title.silver .price,
-        .package-title.gold .price {
-            color: #000; /* Fiyatları siyah yap */
-        }
-
-        /* Geri Butonu */
         .back-button {
-            display: inline-block;
-            margin-top: 30px;
+            display: block;
+            text-align: center;
+            margin-top: 40px;
             padding: 12px 25px;
-            background-color: #C0392B; /* Kırmızı */
+            background-color: #ff073a;
             color: white;
             border-radius: 5px;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 0 15px #ff073a;
         }
         .back-button:hover {
-            background-color: #E74C3C; /* Koyu kırmızı */
+            background-color: #cc062e;
+            box-shadow: 0 0 25px #ff073a;
         }
     </style>
 </head>
@@ -142,51 +111,46 @@
 
     <h1>İnstagram Hizmet Paketleri</h1>
 
-    <!-- Ucuz Takipçi Kategorisi -->
     <div class="service-category">
         <h2>Ucuz Takipçi</h2>
-        <div class="service-item">50 Takipçi : <span class="price">15₺</span></div>
-        <div class="service-item">100 Takipçi : <span class="price">30₺</span></div>
-        <div class="service-item">250 Takipçi : <span class="price">60₺</span></div>
-        <div class="service-item">500 Takipçi : <span class="price">100₺</span></div>
-        <div class="service-item">1.000 Takipçi : <span class="price">200₺</span></div>
+        <div class="service-item">50 Takipçi <span class="price">15₺</span></div>
+        <div class="service-item">100 Takipçi <span class="price">30₺</span></div>
+        <div class="service-item">250 Takipçi <span class="price">60₺</span></div>
+        <div class="service-item">500 Takipçi <span class="price">100₺</span></div>
+        <div class="service-item">1.000 Takipçi <span class="price">200₺</span></div>
     </div>
 
-    <!-- Kadın Takipçi Kategorisi -->
     <div class="service-category">
         <h2>Kadın Takipçi</h2>
-        <div class="service-item">50 Takipçi : <span class="price">30₺</span></div>
-        <div class="service-item">100 Takipçi : <span class="price">60₺</span></div>
-        <div class="service-item">250 Takipçi : <span class="price">170₺</span></div>
-        <div class="service-item">500 Takipçi : <span class="price">300₺</span></div>
-        <div class="service-item">1.000 Takipçi : <span class="price">600₺</span></div>
+        <div class="service-item">50 Takipçi <span class="price">30₺</span></div>
+        <div class="service-item">100 Takipçi <span class="price">60₺</span></div>
+        <div class="service-item">250 Takipçi <span class="price">170₺</span></div>
+        <div class="service-item">500 Takipçi <span class="price">300₺</span></div>
+        <div class="service-item">1.000 Takipçi <span class="price">600₺</span></div>
     </div>
 
-    <!-- Beğeni Kategorisi -->
     <div class="service-category">
         <h2>Beğeni</h2>
-        <div class="service-item">10 Beğeni : <span class="price">5₺</span></div>
-        <div class="service-item">100 Beğeni : <span class="price">40₺</span></div>
+        <div class="service-item">10 Beğeni <span class="price">5₺</span></div>
+        <div class="service-item">100 Beğeni <span class="price">40₺</span></div>
     </div>
 
-    <!-- Keşfet Paketleri Kategorisi -->
     <div class="service-category">
         <h2>Keşfet Paketleri</h2>
         <div class="service-item">
-            <div class="package-title bronz">Bronz Paket <span class="price">1.600₺</span></div>
-            <p class="package-description">Her Gönderiye 25 Türk Yorum, 100 Türk Beğeni, 25 Türk Kaydetme, %25 Keşfet Etkili Etkileşim, %25 Keşfet Etkili Paylaşım, %100 Türk ve Gerçek Kullanıcılar</p>
+            <div class="package-title bronze-title">Bronz Paket <span class="price">1.600₺</span></div>
+            <p class="package-description">Her Gönderiye 25 Türk Yorum, 100 Türk Beğeni, 25 Türk Kaydetme, %25 Keşfet Etkili Etkileşim</p>
         </div>
         <div class="service-item">
-            <div class="package-title silver">Silver Paket <span class="price">2.500₺</span></div>
+            <div class="package-title silver-title">Silver Paket <span class="price">2.500₺</span></div>
             <p class="package-description">Her Gönderiye 50 Türk Yorum, 250 Türk Beğeni, 50 Türk Kaydetme, %25 Keşfet Etkili Etkileşim</p>
         </div>
         <div class="service-item">
-            <div class="package-title gold">Gold Paket <span class="price">3.200₺</span></div>
+            <div class="package-title gold-title">Gold Paket <span class="price">3.200₺</span></div>
             <p class="package-description">Her Gönderiye 75 Türk Yorum, 500 Türk Beğeni, 75 Türk Kaydetme, %25 Keşfet Etkili Etkileşim</p>
         </div>
     </div>
 
-    <!-- Geri Butonu -->
     <a href="index.html" class="back-button">Ana Sayfaya Dön</a>
 
 </body>
