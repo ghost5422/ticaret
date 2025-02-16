@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Hizmet Paketleri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #000; /* Siyah arka plan */
+            color: #fff; /* Beyaz yazılar */
+            padding: 40px;
+        }
+        h1 {
+            color: #C80815; /* Neon kırmızı */
+            font-size: 40px;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ff073a;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-shadow: 0 0 3px #ff073a, 0 0 2px #ff073a; /* Neon efekti ve daha net gölge */
+        }
+        h2 {
+            color: #ff073a; /* Neon kırmızı */
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 0 3px #ff073a, 0 0 5px #ff073a; /* Neon efekti */
+        }
+        .service-category {
+            background-color: #111; /* Koyu gri arka plan */
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #ff073a; /* Sol kenar neon kırmızı */
+            box-shadow: 0 0 15px #ff073a; /* Neon efekti */
+        }
+        .service-item {
+            font-size: 18px;
+            margin: 20px 0;
+            font-weight: 400;
+            display: flex;
+            flex-direction: column;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff; /* Beyaz daha hafif gölge */
+        }
+        /* Paket Başlıkları İçin Renkler */
+        .bronze-title {
+            color: #cd7f32; /* Bronz */
+            text-shadow: 0 0 5px #cd7f32, 0 0 15px #cd7f32; /* Hafif gölge */
+        }
+        .silver-title {
+            color: #c0c0c0; /* Gümüş */
+            text-shadow: 0 0 5px #c0c0c0, 0 0 15px #c0c0c0; /* Hafif gölge */
+        }
+        .gold-title {
+            color: #ffd700; /* Altın */
+            text-shadow: 0 0 5px #ffd700, 0 0 15px #ffd700; /* Hafif gölge */
+        }
+        .package-title {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 15px;
+            border: 2px solid #ff073a;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+            background-color: #222;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px #fff, 0 0 10px #ff073a; /* Paket başlıklarında daha hafif ve net gölge */
+        }
+        .package-description {
+            font-size: 16px;
+            font-weight: normal;
+            color: #bbb;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-shadow: 0 0 3px #fff, 0 0 5px #fff; /* Açıklamalarda hafif gölge */
+        }
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff073a; /* Neon kırmızı */
+            text-shadow: 0 0 5px #ff073a, 0 0 10px #ff073a; /* Fiyatlarda da neon efekti */
+        }
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            padding: 12px 25px;
+            background-color: #ff073a;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 0 15px #ff073a;
+        }
+        .back-button:hover {
+            background-color: #cc062e;
+            box-shadow: 0 0 25px #ff073a;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Youtube Hizmet Paketleri</h1>
+
+    <div class="service-category">
+        <h2>Abone</h2>
+        <div class="service-item">100 Türk abone <span class="price">70₺</span></div>
+        <div class="service-item">500 Türk abone <span class="price">270₺</span></div>
+        <div class="service-item">1.000 Türk abone <span class="price">500₺</span></div>
+    </div>
+
+    <div class="service-category">
+        <h2>İzlenme</h2>
+        <div class="service-item">100 İzlenme <span class="price">15₺</span></div>
+        <div class="service-item">500 İzlenme <span class="price">60₺</span></div>
+        <div class="service-item">1.000 İzlenme <span class="price">100₺</span></div>
+    </div>
+
+    <div class="service-category">
+        <h2>Beğeni</h2>
+        <div class="service-item">100 Beğeni <span class="price">20₺</span></div>
+        <div class="service-item">500 Beğeni <span class="price">80₺</span></div>
+        <div class="service-item">1.000 Beğeni <span class="price">120₺</span></div>
+    </div>
+
+    <div class="service-category">
+        <h2>Türk Yorum</h2>
+        <div class="service-item">100 Yorum <span class="price">200₺</span></div>
+        <div class="service-item">500 Yorum <span class="price">650₺</span></div>
+        <div class="service-item">1.000 Yorum <span class="price">950₺</span></div>
+    </div>
+
+    <div class="service-category">
+        <h2>Dislike</h2>
+        <div class="service-item">100 Dislike <span class="price">50₺</span></div>
+        <div class="service-item">500 Dislike <span class="price">200₺</span></div>
+        <div class="service-item">1.000 Dislike <span class="price">300₺</span></div>
+    </div>
+
+    <a href="index.html" class="back-button">Ana Sayfaya Dön</a>
+
+</body>
+</html>
