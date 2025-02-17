@@ -45,7 +45,7 @@
         }
         .header {
             text-align: center;
-            margin-top: 120px; /* Başlık aşağı itildi */
+            margin-top: 120px;
             margin-bottom: 40px;
         }
         .header h1 {
@@ -61,7 +61,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin-top: 20px; /* Butonlar aşağı kaydırıldı */
+            margin-top: 20px;
         }
         .platform {
             width: 250px;
@@ -94,38 +94,58 @@
         .instagram { border-color: #E4405F; background-color: #E4405F; }
         .tiktok { border-color: #00F2EA; background-color: #00F2EA; }
         .twitter { border-color: #1DA1F2; background-color: #1DA1F2; }
-.youtube img {
-    width: 60px;  /* Genişlik */
-    height: 40px; /* Yükseklik */
-}
+        .youtube img {
+            width: 60px;
+            height: 40px;
+        }
         .youtube {
-    border-color: #FF0000; 
-    background-color: #fff; /* İç kısım beyaz yapıldı */
-    color: #FF0000; /* Yazı kırmızı yapıldı */
-}
-        .tiktok img { width: 80px; height: 80px; } /* TikTok logosu büyütüldü */
-        .tiktok span { color: black; } /* TikTok yazısı siyah yapıldı */
+            border-color: #FF0000;
+            background-color: #fff;
+            color: #FF0000;
+        }
+        .tiktok img { width: 80px; height: 80px; }
+        .tiktok span { color: black; }
 
         .contact-container {
             text-align: center;
             margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         .contact {
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 18px;
             font-weight: bold;
             color: #fff;
             text-decoration: none;
-            padding: 12px 25px;
+            padding: 12px 20px;
             border-radius: 8px;
-            background-color: #0077cc;
             border: none;
             transition: all 0.3s ease;
-            box-shadow: 2px 2px 10px rgba(0, 119, 204, 0.4);
+            box-shadow: 2px 2px 10px rgba(0, 136, 204, 0.4);
+            width: 250px;
         }
-        .contact:hover {
-            background-color: #005fa3;
-            box-shadow: 2px 2px 15px rgba(0, 95, 163, 0.5);
+        .contact img {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+        }
+        .telegram {
+            background-color: #0088cc;
+        }
+        .telegram:hover {
+            background-color: #006699;
+            box-shadow: 2px 2px 15px rgba(0, 102, 153, 0.5);
+        }
+        .twitter-contact {
+            background-color: #1DA1F2;
+        }
+        .twitter-contact:hover {
+            background-color: #0d8ddf;
+            box-shadow: 2px 2px 15px rgba(0, 136, 204, 0.5);
         }
     </style>
 </head>
@@ -160,8 +180,13 @@
     </div>
 
     <div class="contact-container">
-        <a class="contact" href="https://www.instagram.com/trakyali_pitbul" target="_blank">
-            Bana Ulaşın
+        <a class="contact telegram" href="https://t.me/alien_Xba" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+            Telegram'dan Ulaş
+        </a>
+        <a class="contact twitter-contact" href="https://twitter.com/anonim66627" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="Twitter">
+            Twitter'dan Ulaş
         </a>
     </div>
 
