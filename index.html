@@ -1,198 +1,222 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sosyal Medya Hizmetleri</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ürün Takip Uygulaması</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f6f6f6;
+      color: #333;
+    }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', Arial, sans-serif;
-        }
-        body {
-            background-color: #000;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-        }
-        .warning {
-            font-size: 16px;
-            font-weight: bold;
-            color: red;
-            border: 2px solid red;
-            padding: 12px;
-            border-radius: 10px;
-            animation: blink 1s infinite alternate;
-            position: absolute;
-            top: 20px;
-            background-color: #fff;
-            width: 80%;
-            text-align: center;
-            color: black;
-        }
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-        .header {
-            text-align: center;
-            margin-top: 120px;
-            margin-bottom: 40px;
-        }
-        .header h1 {
-            font-size: 28px;
-            font-weight: bold;
-            color: #fff;
-        }
-        .header p {
-            font-size: 16px;
-            color: #bbb;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .platform {
-            width: 250px;
-            height: 80px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 2px solid #444;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 18px;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-align: center;
-            background: #111;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
-        }
-        .platform:hover {
-            background: #222;
-            transform: scale(1.05);
-            box-shadow: 3px 3px 15px rgba(255, 255, 255, 0.2);
-        }
-        .platform img {
-            margin-right: 10px;
-            width: 50px;
-            height: 50px;
-        }
-        .instagram { border-color: #E4405F; background-color: #E4405F; }
-        .tiktok { border-color: #00F2EA; background-color: #00F2EA; }
-        .twitter { border-color: #1DA1F2; background-color: #1DA1F2; }
-        .youtube img {
-            width: 60px;
-            height: 40px;
-        }
-        .youtube {
-            border-color: #FF0000;
-            background-color: #fff;
-            color: #FF0000;
-        }
-        .tiktok img { width: 80px; height: 80px; }
-        .tiktok span { color: black; }
+    h2 {
+      color: #ff6600;
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-        .contact-container {
-            text-align: center;
-            margin-top: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .contact {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            border: none;
-            transition: all 0.3s ease;
-            box-shadow: 2px 2px 10px rgba(0, 136, 204, 0.4);
-            width: 250px;
-        }
-        .contact img {
-            width: 25px;
-            height: 25px;
-            margin-right: 10px;
-        }
-        .telegram {
-            background-color: #0088cc;
-        }
-        .telegram:hover {
-            background-color: #006699;
-            box-shadow: 2px 2px 15px rgba(0, 102, 153, 0.5);
-        }
-        .twitter-contact {
-            background-color: #1DA1F2;
-        }
-        .twitter-contact:hover {
-            background-color: #0d8ddf;
-            box-shadow: 2px 2px 15px rgba(0, 136, 204, 0.5);
-        }
-    </style>
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 1em;
+      background-color: #ff6600;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    button:hover {
+      background-color: #e65c00;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin-top: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #eee;
+    }
+
+    th {
+      background-color: #f0f0f0;
+      color: #555;
+    }
+
+    .kar {
+      color: green;
+      font-weight: bold;
+    }
+
+    .link-btn {
+      text-decoration: none;
+      background: #666;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    .action-btns button {
+      margin: 2px;
+      padding: 6px 8px;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 600px) {
+      input, button {
+        font-size: 0.95em;
+      }
+
+      th, td {
+        font-size: 0.85em;
+      }
+
+      .action-btns button {
+        font-size: 0.8em;
+        padding: 5px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <p class="warning">
-        Takipçiler 5-10 dakika arasında gelmektedir. Hesabınız gizli olmamalıdır, gizli hesaplar takipçi almayacaktır.
-    </p>
-
-    <div class="header">
-        <h1>Sosyal Medya Hizmetlerimiz</h1>
-        <p>Hizmet almak istediğiniz sosyal medya platformunu seçerek paketleri görüntüleyebilirsiniz.</p>
+  <h2>Ürün Takip Uygulaması</h2>
+  <div class="container">
+    <div class="form-group">
+      <input type="text" id="urun" placeholder="Ürün Adı" />
+      <input type="number" id="alis" placeholder="Alış Fiyatı (₺)" />
+      <input type="number" id="satis" placeholder="Satış Fiyatı (₺)" />
+      <input type="date" id="tarih" />
+      <input type="url" id="link" placeholder="Ürün Linki (https://...)" />
     </div>
+    <button onclick="kaydet()">Kaydet</button>
+    <button onclick="goster()">Göster</button>
+  </div>
 
-    <div class="container">
-        <div class="platform instagram" onclick="window.location.href='instagram.html'">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-            İnstagram
-        </div>
-        <div class="platform tiktok" onclick="window.location.href='tiktok.html'">
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
-            <span>TikTok</span>
-        </div>
-        <div class="platform twitter" onclick="window.location.href='twitter.html'">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="Twitter">
-            Twitter
-        </div>
-        <div class="platform youtube" onclick="window.location.href='youtube.html'">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube">
-            YouTube
-        </div>
-    </div>
+  <div class="table-container">
+    <table id="urunTablo">
+      <thead>
+        <tr>
+          <th>Ürün</th>
+          <th>Alış Fiyatı</th>
+          <th>Satış Fiyatı</th>
+          <th> Tahmini Teslim Tarihi</th>
+          <th>Kâr</th>
+          <th>Link</th>
+          <th>İşlem</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
 
-    <div class="contact-container">
-        <a class="contact telegram" href="https://t.me/alien_Xba" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
-            Telegram'dan Ulaş
-        </a>
-        <a class="contact twitter-contact" href="https://twitter.com/anonim66627" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="Twitter">
-            Twitter'dan Ulaş
-        </a>
-<a class="contact instagram-contact" href="https://www.instagram.com/turtle.2969298" target="_blank" style="background-color: #1877F2; color: white; padding: 10px 15px; border-radius: 5px; display: flex; align-items: center; text-decoration: none; font-weight: bold;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 24px; height: 24px; margin-right: 8px;">
-    İnstagram'dan Ulaş
-</a>
-    </div>
+  <script>
+    let urunler = JSON.parse(localStorage.getItem("urunler")) || [];
+
+    function kaydet() {
+      const urun = document.getElementById('urun').value;
+      const alis = parseFloat(document.getElementById('alis').value);
+      const satis = parseFloat(document.getElementById('satis').value);
+      const tarih = document.getElementById('tarih').value;
+      const link = document.getElementById('link').value;
+
+      if (!urun || isNaN(alis) || isNaN(satis) || !tarih || !link) {
+        alert("Lütfen tüm alanları doldurun.");
+        return;
+      }
+
+      urunler.push({ urun, alis, satis, tarih, link });
+      localStorage.setItem("urunler", JSON.stringify(urunler));
+
+      document.getElementById('urun').value = '';
+      document.getElementById('alis').value = '';
+      document.getElementById('satis').value = '';
+      document.getElementById('tarih').value = '';
+      document.getElementById('link').value = '';
+    }
+
+    function goster() {
+      const tbody = document.querySelector('#urunTablo tbody');
+      tbody.innerHTML = '';
+
+      urunler.forEach((item, index) => {
+        const kar = item.satis - item.alis;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${item.urun}</td>
+          <td>${item.alis.toFixed(2)}₺</td>
+          <td>${item.satis.toFixed(2)}₺</td>
+          <td>${item.tarih}</td>
+          <td class="kar">${kar.toFixed(2)}₺</td>
+          <td><a href="${item.link}" class="link-btn" target="_blank">Ürüne Git</a></td>
+          <td class="action-btns">
+            <button onclick="duzenle(${index})">Düzenle</button>
+            <button onclick="sil(${index})">Sil</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function sil(index) {
+      if (confirm("Bu ürünü silmek istediğinize emin misiniz?")) {
+        urunler.splice(index, 1);
+        localStorage.setItem("urunler", JSON.stringify(urunler));
+        goster();
+      }
+    }
+
+    function duzenle(index) {
+      const item = urunler[index];
+      document.getElementById('urun').value = item.urun;
+      document.getElementById('alis').value = item.alis;
+      document.getElementById('satis').value = item.satis;
+      document.getElementById('tarih').value = item.tarih;
+      document.getElementById('link').value = item.link;
+      sil(index);
+    }
+
+    goster(); // Sayfa yüklenince ürünleri göster
+  </script>
 
 </body>
 </html>
