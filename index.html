@@ -47,6 +47,7 @@
       color: black;
       min-width: 200px;
       border: 1px solid #e0e0e0;
+      text-align: center;
     }
     .ziraat {
       background-color: #ff9280;
@@ -57,9 +58,9 @@
     .papara {
       background-color: #7499e2;
     }
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 16px;
+    .card img {
+      width: 120px;
+      margin-bottom: 10px;
     }
     .card p {
       margin: 5px 0;
@@ -106,7 +107,7 @@
       border-left: 4px solid #ffc107;
       padding: 10px;
       margin-bottom: 20px;
-      font-size: 15px;
+      font-size: 13px;
       color: #7c6c00;
     }
     .pay-btn {
@@ -144,19 +145,19 @@
 
     <div class="payment-options">
       <div class="card ziraat">
-        <h3>Ziraat Bankası</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Ziraat_Bankas%C4%B1_logo.png" alt="Ziraat Bankası">
         <p><strong>IBAN:</strong><br><span id="iban-ziraat">TR03 0001 0090 1019 7947 4050 01</span></p>
         <button class="copy-btn" onclick="copyIBAN('iban-ziraat')">Kopyala</button>
         <p><strong>Hesap Sahibi:</strong><br>Berkay Taşkan</p>
       </div>
       <div class="card garanti">
-        <h3>Garanti Bankası</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/tr/7/75/Garanti_BBVA.png" alt="Garanti Bankası">
         <p><strong>IBAN:</strong><br><span id="iban-garanti">TR36 0006 2000 0530 0006 8912 70</span></p>
         <button class="copy-btn" onclick="copyIBAN('iban-garanti')">Kopyala</button>
         <p><strong>Hesap Sahibi:</strong><br>Berkay Taşkan</p>
       </div>
       <div class="card papara">
-        <h3>Papara</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/PAPARA.png" alt="Papara">
         <p><strong>Numara:</strong><br><span id="iban-papara">1875239794</span></p>
         <button class="copy-btn" onclick="copyIBAN('iban-papara')">Kopyala</button>
         <p><strong>Hesap Sahibi:</strong><br>Berkay Taşkan</p>
