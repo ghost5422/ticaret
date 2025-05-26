@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hesapçı Baba</title>
+  <link rel="icon" href="https://i.hizliresim.com/8mdb538.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* senin CSS buraya devam ediyor... */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -65,11 +67,24 @@
       opacity: 0;
     }
 
-    .card:nth-child(1) { background: linear-gradient(135deg, #1e40af, #60a5fa); }
-    .card:nth-child(2) { background: linear-gradient(135deg, #065f46, #34d399); }
-    .card:nth-child(3) { background: linear-gradient(135deg, #6d28d9, #c084fc); }
-    .card:nth-child(4) { background: linear-gradient(135deg, #be185d, #f472b6); }
-    .card:nth-child(5) { background: linear-gradient(135deg, #b45309, #facc15); }
+    .card:nth-child(1) {
+  background: linear-gradient(135deg, #b20710, #b20710);
+}
+    .card:nth-child(2) {
+  background: linear-gradient(135deg, #ffcb05, #e5e7eb);
+}
+    .card:nth-child(3) {
+  background: linear-gradient(135deg, #1f80e0, #e5e7eb);
+}
+    .card:nth-child(4) {
+  background: linear-gradient(135deg, #334155, #e5e7eb);
+}
+.card:nth-child(5) {
+  background: linear-gradient(135deg, #e11d48, #e5e7eb);
+}
+    .card:nth-child(6) {
+  background: linear-gradient(135deg, #0ea5e9, #e5e7eb);
+}
 
     .card:hover {
       transform: scale(1.03);
@@ -79,28 +94,35 @@
       margin: 0 0 10px;
       font-size: 20px;
       font-weight: bold;
+      color: white;
     }
 
     .card p {
-      font-size: 14px;
+      font-size: 17px;
+      color:black;
+      font-weight:800;
+      
     }
 
     .price {
       font-weight: 600;
-      font-size: 18px;
+      font-size: 20px;
       margin: 12px 0;
+      color: black;
+      font-weight: bold;
     }
 
     .card button {
       background: rgba(0,0,0,0.2);
-      color: white;
+      color: black;
       border: none;
-      padding: 10px;
+      padding: 15px;
       border-radius: 8px;
       cursor: pointer;
       width: 100%;
       font-weight: bold;
       transition: background 0.3s ease;
+      font-size: 17px;
     }
 
     .card button:hover {
@@ -180,6 +202,34 @@
       cursor: pointer;
     }
 
+.info-box {
+  background: #fef9c3;
+  color: black;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-weight: 800;
+}
+.info-box p {
+  margin: 0;
+  line-height: 1.5;
+}
+.blinking-icon {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
+  animation: blink 1s infinite;
+}
+
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
   </style>
 </head>
 <body>
@@ -190,9 +240,18 @@
   </button>
   <h1>
     <img src="https://i.hizliresim.com/m8xbc2o.png" alt="Çanta" width="24" height="24">
-         ☞ Hesapçı Baba ☜
+           Hesapçı Baba
   </h1>
 </header>
+
+<div class="info-box">
+  <p>
+   <img src="https://cdn-icons-png.flaticon.com/512/595/595067.png" 
+     alt="Uyarı" class="blinking-icon"> 
+    <strong>Crack hesap nedir?</strong><br>
+    Bu hesaplar, özel yöntemlerle elde edilen ve belli süre çalışması garanti edilen hesap türleridir. Tarafımızdan verilen mail ve şifre ile giriş yapılır. Lütfen bu tür hesapların süreli olduğunu ve garanti süresi dışındaki sorumluluğun kullanıcıya ait olduğunu unutmayın.
+  </p>
+</div>
 
 <div class="products" id="productList"></div>
 
@@ -206,29 +265,30 @@
 
 <script>
   const products = [
-    { id: 1, name: "Netflix", price: 85, desc: "Ürün cracktir. Süre yoktur. Garanti: 3 gün" },
-    { id: 2, name: "Exxen", price: 65, desc: "Ürün cracktir. Süre yoktur. Garanti: 3 gün" },
-    { id: 3, name: "Disney+", price: 50, desc: "Ürün cracktir. Süre yoktur. Garanti: 1 Ay" },
-    { id: 4, name: "Max (BluTV)", price: 70, desc: "Ürün cracktir. Süre yoktur. Garanti: 3 gün" },
-    { id: 5, name: "Gain TV", price: 70, desc: "Ürün cracktir. Süre yoktur. Garanti: 3 gün" }
-  ];
+  { id: 1, name: "Netflix", price: 85, desc: "Premium 4K hesap. Tarafımızdan verilen mail ve şifreyle giriş yapılır. Ne çıkarsa o sistemidir. Garanti süresi: 3 gün.", logo: "https://i.hizliresim.com/sfgnsbp.png" },
+  { id: 2, name: "Exxen", price: 65, desc: "Karma Exxen hesabı. Exxen veya Exxen Spor olabilir. Mail ve şifre tarafımızdan verilir. Garanti süresi: 3 gün.", logo: "https://i.hizliresim.com/f8lp41r.png" },
+  { id: 3, name: "Disney+", price: 50, desc: "Disney+ karma üyelik. Reklamlı veya reklamsız olabilir. Giriş bilgileri tarafımızdan verilir. Garanti süresi: 1 Ay.", logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" },
+  { id: 4, name: "Max (BluTV)", price: 70, desc: "Max (BluTV) Premium üyelik. Mail ve şifre tarafımızdan verilir. Garanti süresi: 7 gün.", logo: "https://i.hizliresim.com/rgarp03.png" },
+  { id: 5, name: "Gain TV", price: 70, desc: "Gain Premium üyelik. Giriş bilgileri tarafımızdan sağlanır. Garanti süresi: 7 gün.", logo: "https://upload.wikimedia.org/wikipedia/tr/2/21/Gain_Medya_logosu.png" },
+  { id: 6, name: "Tabi Premium", price: 60, desc: "Tabi Premium üyelik. Ne çıkarsa o sistemidir. Mail ve şifre tarafımızdan verilir. Garanti süresi: 3 gün.", logo: "https://i.hizliresim.com/4wn0zh8.jpeg" }
+];
 
   let cart = [];
 
   const renderProducts = () => {
-    const list = document.getElementById("productList");
-    list.innerHTML = "";
-    products.forEach(p => {
-      list.innerHTML += `
-        <div class="card">
-          <h3>${p.name}</h3>
-          <p>${p.desc}</p>
-          <div class="price">₺${p.price}</div>
-          <button onclick="addToCart(${p.id})">Sepete Ekle</button>
-        </div>
-      `;
-    });
-  };
+  const list = document.getElementById("productList");
+  list.innerHTML = "";
+  products.forEach(p => {
+    list.innerHTML += `
+      <div class="card">
+        <img src="${p.logo}" alt="${p.name}" style="width:100px;height:auto;margin-bottom:10px;">
+        <p>${p.desc}</p>
+        <div class="price">₺${p.price}</div>
+        <button onclick="addToCart(${p.id})">Sepete Ekle</button>
+      </div>
+    `;
+  });
+};
 
   const addToCart = (id) => {
     const existing = cart.find(x => x.id === id);
