@@ -3,216 +3,301 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ödeme Sayfası</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
-
+  <title>Crack Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f4f8;
       margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 800px;
-      margin: 50px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    }
-    h2 {
-      text-align: center;
-      color: #222;
-      margin-bottom: 10px;
-    }
-    .subtitle {
-      text-align: center;
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 30px;
-    }
-    .payment-options {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 30px;
-    }
-    .card {
-      flex: 1 1 calc(33% - 10px);
-      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
       padding: 20px;
-      margin-bottom: 20px;
-      color: black;
-      min-width: 200px;
-      border: 1px solid #e0e0e0;
-      text-align: center;
     }
-    .ziraat {
-      background-color: #ff9280;
+
+    header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.cart-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #60a5fa;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .garanti {
-      background-color: #77df68;
-    }
-    .papara {
-      background-color: #7499e2;
-    }
-    .card img {
-      width: 120px;
-      margin-bottom: 10px;
-    }
-    .card p {
-      margin: 5px 0;
-      font-size: 14px;
-    }
-    .copy-btn {
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid #fff;
-      color: black;
-      font-size: 16px;
-      padding: 4px 8px;
-      border-radius: 5px;
+
+    .cart-btn {
+      background: none;
+      border: none;
       cursor: pointer;
-      margin-top: 5px;
     }
-    .form-area {
-      margin-top: 20px;
-      background-color: #f6f7fb;
-      padding: 25px;
-      border-radius: 10px;
-      border: 1px solid #e0e3ed;
+
+    .cart-btn img {
+      width: 28px;
+      height: 28px;
     }
-    .form-area h4 {
-      margin-bottom: 15px;
-      color: #222;
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 20px;
+      border-radius: 14px;
+      background: #1e293b;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease;
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    .card:nth-child(1) { background: linear-gradient(135deg, #1e40af, #60a5fa); }
+    .card:nth-child(2) { background: linear-gradient(135deg, #065f46, #34d399); }
+    .card:nth-child(3) { background: linear-gradient(135deg, #6d28d9, #c084fc); }
+    .card:nth-child(4) { background: linear-gradient(135deg, #be185d, #f472b6); }
+    .card:nth-child(5) { background: linear-gradient(135deg, #b45309, #facc15); }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .card p {
+      font-size: 14px;
+    }
+
+    .price {
+      font-weight: 600;
       font-size: 18px;
+      margin: 12px 0;
     }
-    .form-area label {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-area input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-    .warning {
-      background: #fffbea;
-      border-left: 4px solid #ffc107;
-      padding: 10px;
-      margin-bottom: 20px;
-      font-size: 13px;
-      color: #7c6c00;
-    }
-    .pay-btn {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      background-color: #2563eb;
+
+    .card button {
+      background: rgba(0,0,0,0.2);
       color: white;
       border: none;
+      padding: 10px;
       border-radius: 8px;
-      font-size: 16px;
       cursor: pointer;
+      width: 100%;
+      font-weight: bold;
       transition: background 0.3s ease;
     }
-    .pay-btn:hover {
-      background-color: #1d4ed8;
+
+    .card button:hover {
+      background: rgba(0,0,0,0.4);
     }
-    .footer {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 13px;
-      color: #999;
-    }
-    @media (max-width: 768px) {
-      .payment-options {
-        flex-direction: column;
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
+
+    /* Sepet Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #1f2937;
+      padding: 20px;
+      border-radius: 14px;
+      z-index: 1000;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+
+    .modal h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .modal .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .modal .controls {
+      display: flex;
+      gap: 5px;
+    }
+
+    .modal .controls button {
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 4px;
+      border: none;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 18px;
+      color: #f87171;
+      cursor: pointer;
+    }
+
+    .btn {
+      background: #10b981;
+      color: white;
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 15px;
+      border: none;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Ödeme Bilgileri</h2>
-    <p class="subtitle">Lütfen aşağıdaki ödeme seçeneklerinden birini kullanın</p>
 
-    <div class="payment-options">
-      <div class="card ziraat">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Ziraat_Bankas%C4%B1_logo.png" alt="Ziraat Bankası">
-        <p><strong>IBAN:</strong><br><span id="iban-ziraat">TR03 0001 0090 1019 7947 4050 01</span></p>
-        <button class="copy-btn" onclick="copyIBAN('iban-ziraat')">Kopyala</button>
-        <p><strong>Hesap Sahibi:</strong><br>Berkay Taşkan</p>
-      </div>
-      <div class="card garanti">
-        <img src="https://upload.wikimedia.org/wikipedia/tr/7/75/Garanti_BBVA.png" alt="Garanti Bankası">
-        <p><strong>IBAN:</strong><br><span id="iban-garanti">TR36 0006 2000 0530 0006 8912 70</span></p>
-        <button class="copy-btn" onclick="copyIBAN('iban-garanti')">Kopyala</button>
-        <p><strong>Hesap Sahibi:</strong><br>Berkay Taşkan</p>
-      </div>
-      <div class="card papara">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/PAPARA.png" alt="Papara">
-        <p><strong>Numara:</strong><br><span id="iban-papara">1875239794</span></p>
-        <button class="copy-btn" onclick="copyIBAN('iban-papara')">Kopyala</button>
-        <p><strong>Hesap Sahibi:</strong><br>Berkay Taşkan</p>
-      </div>
-    </div>
+<header>
+  <button class="cart-btn" onclick="showCart()">
+    <img src="https://i.hizliresim.com/sd7bmrg.png" alt="sepet">
+  </button>
+  <h1>
+    <img src="https://i.hizliresim.com/m8xbc2o.png" alt="Çanta" width="24" height="24">
+           Crack Store
+  </h1>
+</header>
 
-    <div class="form-area">
-      <h4>Ödeme Bilgileriniz</h4>
-      <label>Ödeme Tutarı (₺)</label>
-      <input type="number" placeholder="Örn: 100" id="tutar" />
+<div class="products" id="productList"></div>
 
-      <div class="warning">
-        Lütfen ödeme yaptıktan sonra <strong>"Ödeme Yaptım"</strong> butonuna basmayı unutmayınız.
-      </div>
+<div class="modal" id="cartModal">
+  <div class="close" onclick="closeCart()">×</div>
+  <h2>Sepet</h2>
+  <div id="cartItems"></div>
+  <p id="total">Toplam: ₺0</p>
+  <button class="btn" onclick="goToPayment()">Ödeme Yap</button>
+</div>
 
-      <button class="pay-btn" onclick="sendWhatsApp()">Ödeme Yaptım</button>
-    </div>
+<script>
+  const products = [
+    { id: 1, name: "Netflix", price: 85, desc: "Ürün cracktir. Süre yoktur. Garanti: 3 gün" },
+    { id: 2, name: "Exxen", price: 65, desc: "Ürün cracktir. Süre yoktur. Garanti: 3 gün" },
+    { id: 3, name: "Disney+", price: 50, desc: "Ürün cracktir. Süre yoktur. Garanti: 1 Ay" },
+    { id: 4, name: "Max (BluTV)", price: 70, desc: "Ürün cracktir. Süre yoktur. Garanti: 3 gün" },
+    { id: 5, name: "Gain TV", price: 70, desc: "Ürün cracktir. Süre yoktur. Garanti: 3 gün" }
+  ];
 
-    <div class="footer">
-      © 2025 Berkay Taşkan. Tüm hakları saklıdır.
-    </div>
-  </div>
+  let cart = [];
 
-  <!-- Toastr JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  <script>
-    function sendWhatsApp() {
-      const phone = '447442525362';
-      const tutar = document.getElementById('tutar').value.trim();
+  const renderProducts = () => {
+    const list = document.getElementById("productList");
+    list.innerHTML = "";
+    products.forEach(p => {
+      list.innerHTML += `
+        <div class="card">
+          <h3>${p.name}</h3>
+          <p>${p.desc}</p>
+          <div class="price">₺${p.price}</div>
+          <button onclick="addToCart(${p.id})">Sepete Ekle</button>
+        </div>
+      `;
+    });
+  };
 
-      if (!tutar || Number(tutar.replace(',', '.')) === 0) {
-        toastr.warning("Lütfen geçerli bir ödeme tutarı giriniz.");
-        return;
-      }
-
-      const message = encodeURIComponent(`Merhaba, ödeme yaptım.
-Ad Soyad: Berkay Taşkan
-IBAN: TR36 0006 2000 0530 0006 8912 70
-Tutar: ${tutar}₺
-Ödeme Yöntemi: Garanti`);
-
-      window.location.href = `https://wa.me/${phone}?text=${message}`;
+  const addToCart = (id) => {
+    const existing = cart.find(x => x.id === id);
+    if (existing) {
+      existing.qty++;
+    } else {
+      const product = products.find(p => p.id === id);
+      cart.push({ ...product, qty: 1 });
     }
+    showCart();
+  };
 
-    function copyIBAN(id) {
-      const text = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        if (id === "iban-papara") {
-          toastr.success("Papara numarası kopyalandı!");
-        } else {
-          toastr.success("IBAN panoya kopyalandı!");
-        }
-      });
+  const updateCart = () => {
+    const cartItems = document.getElementById("cartItems");
+    const total = document.getElementById("total");
+    cartItems.innerHTML = "";
+    let sum = 0;
+    cart.forEach(item => {
+      sum += item.price * item.qty;
+      cartItems.innerHTML += `
+        <div class="item">
+          ${item.name} x${item.qty} - ₺${item.price * item.qty}
+          <div class="controls">
+            <button onclick="changeQty(${item.id}, -1)">–</button>
+            <button onclick="changeQty(${item.id}, 1)">+</button>
+            <button onclick="removeItem(${item.id})">
+  <img src="https://i.hizliresim.com/3updiec.png" width="20" height="20" alt="Sil">
+</button>
+          </div>
+        </div>
+      `;
+    });
+    total.innerText = "Toplam: ₺" + sum;
+  };
+
+  const changeQty = (id, change) => {
+    const item = cart.find(x => x.id === id);
+    if (!item) return;
+    item.qty += change;
+    if (item.qty <= 0) {
+      cart = cart.filter(x => x.id !== id);
     }
-  </script>
+    updateCart();
+  };
+
+  const removeItem = (id) => {
+    cart = cart.filter(x => x.id !== id);
+    updateCart();
+  };
+
+  const showCart = () => {
+    document.getElementById("cartModal").style.display = "block";
+    updateCart();
+  };
+
+  const closeCart = () => {
+    document.getElementById("cartModal").style.display = "none";
+  };
+
+  const goToPayment = () => {
+    const summary = cart.map(item => `- ${item.name} x${item.qty} - ₺${item.price * item.qty}`).join("\n");
+    const total = cart.reduce((a, b) => a + b.price * b.qty, 0);
+    localStorage.setItem("siparisUrunler", summary);
+    localStorage.setItem("siparisTutar", total);
+    window.location.href = "odeme.html";
+  };
+
+  renderProducts();
+</script>
+
 </body>
 </html>
