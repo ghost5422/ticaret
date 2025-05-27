@@ -288,7 +288,7 @@ footer {
       ? `\n\nÖdeme Yapılan Hesap: ${selectedBank}`
       : "\n\n*Hangi hesaba gönderim yaptığınızı belirtmeyi unutmayın.*";
 
-    const mesaj = `Crack Store Sipariş Fişi:\n\n${formatted}\n\nToplam Tutar: ₺${tutar}${bankaBilgisi}`;
+    const mesaj = `Hesap Burada Sipariş Fişi:\n\n${formatted}\n\nToplam Tutar: ₺${tutar}${bankaBilgisi}`;
     const url = "https://wa.me/447442525362?text=" + encodeURIComponent(mesaj);
     window.location.href = url;
   }
