@@ -142,65 +142,89 @@
 
     /* Sepet Modal */
     .modal {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #1f2937;
-      padding: 20px;
-      border-radius: 14px;
-      z-index: 1000;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.6);
-    }
+  background: #1e293b;
+  color: #f1f5f9;
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-width: 520px;
+  z-index: 1000;
+  display: none;
+  font-family: 'Inter', sans-serif;
+}
 
-    .modal h2 {
-      margin-top: 0;
-      text-align: center;
-    }
+.modal h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  text-align: left;
+}
 
-    .modal .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 10px 0;
-    }
+.modal .item {
+  background: #f1f5f9;
+  color: #111827;
+  padding: 16px 20px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
 
-    .modal .controls {
-      display: flex;
-      gap: 5px;
-    }
+.modal .controls {
+  display: flex;
+  gap: 6px;
+}
 
-    .modal .controls button {
-      padding: 5px 10px;
-      font-size: 14px;
-      cursor: pointer;
-      border-radius: 4px;
-      border: none;
-    }
+.modal .controls button {
+  background: #f1f5f9;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 14px;
-      font-size: 18px;
-      color: #f87171;
-      cursor: pointer;
-    }
+.modal .controls button:hover {
+  background: #e2e8f0;
+}
 
-    .btn {
-      background: #10b981;
-      color: white;
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: bold;
-      margin-top: 15px;
-      border: none;
-      cursor: pointer;
-    }
+#total {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.btn {
+  background: #3b82f6;
+  color: white;
+  padding: 14px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  float: right;
+}
+
+.close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 26px;
+  color: #9ca3af;
+  cursor: pointer;
+  font-weight: bold;
+}
 
 .info-box {
   background: #fef9c3;
@@ -230,6 +254,18 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
 }
+
+.site-footer {
+  background: #1e293b;
+  color: #f1f5f9;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+  margin-top: 40px;
+  border-top: 1px solid #334155;
+  clear: both;
+}
+
   </style>
 </head>
 <body>
@@ -262,6 +298,11 @@
   <p id="total">Toplam: ₺0</p>
   <button class="btn" onclick="goToPayment()">Ödeme Yap</button>
 </div>
+
+<!-- tüm içerik ve kartlar bitti -->
+<footer class="site-footer">
+  © 2025 Hesapçı Baba. Tüm hakları saklıdır.
+</footer>
 
 <script>
   const products = [
