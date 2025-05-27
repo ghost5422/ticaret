@@ -39,9 +39,9 @@
   display: inline-block;
 }
 
-header, footer {
-  background: #e2e8f0;
-  color: #1e293b;
+ footer {
+  background: ##1e293b;
+  color: white;
   padding: 20px;
   text-align: center;
 }
@@ -187,10 +187,9 @@ footer {
   <button onclick="window.location.href='index.html'">← Ana Sayfaya Dön</button>
 </div>
 
-<header>
-  <h1>Hesap Burada - Ödeme Sayfası</h1>
+<header style="text-align: center; margin: 0; padding: 0;">
+  <img src="https://ghost5422.github.io/ticaret/logo.png" alt="HesapBurada Logo" style="width: 200px; display: block; margin: auto; padding: 0;">
 </header>
-
 <div class="container">
 
   <div class="box">
@@ -229,18 +228,7 @@ footer {
       <div class="info-note">Bu hesaba ödeme yapacaksan önce bunu kopyala.</div>
     </div>
 
-    <!-- Papara Kartı -->
-    <div class="card">
-      <div class="info-header">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/PAPARA.png" alt="Papara" class="bank-logo">
-      </div>
-      <div class="info-row">
-        <code id="papara">1875239794</code>
-        <button onclick="copy('papara')">Kopyala</button>
-      </div>
-      <div class="info-note">Bu hesaba ödeme yapacaksan önce bunu kopyala.</div>
-    </div>
-
+   
   </div> <!-- doğru kapanış burada olmalı -->
 
   <div class="notice">Ödemenizi yaptıktan sonra WhatsApp’tan bizimle iletişime geçin.</div>
