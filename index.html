@@ -1,418 +1,185 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hesap Burada</title>
-  <meta property="og:title" content="Hesap Burada" />
-  <meta property="og:description" content="Uygun fiyatlı premium hesaplar!" />
-  <meta property="og:image" content="https://ghost5422.github.io/ticaret/logo.png" />
-  <meta property="og:url" content="https://HesapBurada.con.tc" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://ghost5422.github.io/ticaret/logo.png">
-  <link rel="icon" href="https://ghost5422.github.io/ticaret/logo.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Ödeme Sayfası</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
-    /* senin CSS buraya devam ediyor... */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
+      background-color: #f1f7fb;
       padding: 20px;
     }
-
-    header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.cart-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 10px;
-}
-
     h1 {
-      font-size: 28px;
-      font-weight: 600;
-      color: #60a5fa;
+      text-align: center;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+    p {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .banks {
       display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .bank {
+      flex: 1;
+      border: 2px solid #eee;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      background-color: #fff;
+      min-width: 250px;
+    }
+    .bank img {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+    .bank.ziraat { border-left: 5px solid red; }
+    .bank.garanti { border-left: 5px solid green; }
+    .iban-box {
+      background: #f0f0f0;
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 5px;
+      font-size: 14px;
+      word-break: break-word;
+    }
+    .copy-btn {
+      margin-top: 6px;
+      padding: 6px 12px;
+      font-size: 13px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background: #007acc;
+      color: white;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    .info {
+  font-size: 14px;
+  color: #7f6000;             /* Açık altın sarısı yazı */
+  background: yellow;        /* Çok açık limon sarısı arka plan */
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 20px;
+  text-align: center;
+}
+    .btn {
+      margin-top: 25px;
+      background: #00c853;
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
       align-items: center;
       gap: 10px;
     }
-
-    .cart-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
+    .btn img {
+      width: 20px;
     }
-
-    .cart-btn img {
-      width: 28px;
-      height: 28px;
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
     }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      padding: 20px;
-      border-radius: 14px;
-      background: #1e293b;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      transition: transform 0.4s ease;
-      animation: fadeInUp 0.6s ease forwards;
-      opacity: 0;
-    }
-
-    .card:nth-child(1) {
-  background: linear-gradient(135deg, #b20710, #b20710);
-}
-    .card:nth-child(2) {
-  background: linear-gradient(135deg, #ffcb05, #e5e7eb);
-}
-    .card:nth-child(3) {
-  background: linear-gradient(135deg, #1f80e0, #e5e7eb);
-}
-    .card:nth-child(4) {
-  background: linear-gradient(135deg, #334155, #e5e7eb);
-}
-.card:nth-child(5) {
-  background: linear-gradient(135deg, #e11d48, #e5e7eb);
-}
-    .card:nth-child(6) {
-  background: linear-gradient(135deg, #0ea5e9, #e5e7eb);
-}
-
-    .card:hover {
-      transform: scale(1.03);
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 20px;
-      font-weight: bold;
-      color: white;
-    }
-
-    .card p {
-      font-size: 17px;
-      color:black;
-      font-weight:800;
-      
-    }
-
-    .price {
-      font-weight: 600;
-      font-size: 20px;
-      margin: 12px 0;
-      color: black;
-      font-weight: bold;
-    }
-
-    .card button {
-      background: rgba(0,0,0,0.2);
-      color: black;
-      border: none;
-      padding: 15px;
-      border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-      font-weight: bold;
-      transition: background 0.3s ease;
-      font-size: 17px;
-    }
-
-    .card button:hover {
-      background: rgba(0,0,0,0.4);
-    }
-
-    @keyframes fadeInUp {
-      from {
-        transform: translateY(40px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    /* Sepet Modal */
-    .modal {
-  background: #1e293b;
-  color: #f1f5f9;
-  padding: 30px;
-  border-radius: 24px;
-  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 95%;
-  max-width: 520px;
-  z-index: 1000;
-  display: none;
-  font-family: 'Inter', sans-serif;
-}
-
-.modal h2 {
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 25px;
-  text-align: left;
-}
-
-.modal .item {
-  background: #f1f5f9;
-  color: #111827;
-  padding: 16px 20px;
-  border-radius: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-}
-
-.modal .controls {
-  display: flex;
-  gap: 6px;
-}
-
-.modal .controls button {
-  background: #f1f5f9;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.modal .controls button:hover {
-  background: #e2e8f0;
-}
-
-#total {
-  font-size: 18px;
-  font-weight: 700;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.btn {
-  background: #3b82f6;
-  color: white;
-  padding: 14px 24px;
-  font-weight: 600;
-  font-size: 16px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  float: right;
-}
-
-.close {
-  position: absolute;
-  top: 18px;
-  right: 22px;
-  font-size: 26px;
-  color: #9ca3af;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.info-box {
-  background: #fef9c3;
-  color: black;
-  padding: 15px 20px;
-  border-radius: 10px;
-  font-size: 14px;
-  margin: 20px auto;
-  max-width: 600px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  font-weight: 800;
-}
-.info-box p {
-  margin: 0;
-  line-height: 1.5;
-}
-.blinking-icon {
-  width: 30px;
-  height: 30px;
-  vertical-align: middle;
-  margin-right: 10px;
-  animation: blink 1s infinite;
-}
-
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-
-.site-footer {
-  background: #1e293b;
-  color: #f1f5f9;
-  text-align: center;
-  padding: 20px 10px;
-  font-size: 14px;
-  margin-top: 40px;
-  border-top: 1px solid #334155;
-  clear: both;
-}
-
-header h1 {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-header {
-  margin-bottom: 3px; /* Veya 5px – ihtiyacına göre */
-}
-
   </style>
 </head>
 <body>
-
-<header>
-  <button class="cart-btn" onclick="showCart()">
-    <img src="https://i.hizliresim.com/sd7bmrg.png" alt="sepet">
-  </button>
-   <h1 style="margin: 0; padding: 0;">
-  <img src="https://ghost5422.github.io/ticaret/logo.png" alt="Logo" width="200">
-</h1>
+  <header style="text-align: center; margin: 0; padding: 0;">
+  <img src="https://i.hizliresim.com/juaa3d7.png?_gl=1*188zr7s*_ga*MTI5OTQ4MDg1MC4xNzQ4NDE2NDE0*_ga_M9ZRXYS2YN*czE3NDg0MTY0MTQkbzEkZzEkdDE3NDg0MTcxNjgkajM2JGwwJGgw" alt="Logo" style="width: 200px; display: block; margin: auto; padding: 0;">
 </header>
+<div class="container">
+  <p>Lütfen aşağıdaki banka hesaplarından birine ödeme yapınız!</p>
 
-<div class="info-box">
-  <p>
-   <img src="https://cdn-icons-png.flaticon.com/512/595/595067.png" 
-     alt="Uyarı" class="blinking-icon"> 
-    <strong>Crack hesap nedir?</strong><br>
-    Bu hesaplar, özel yöntemlerle elde edilen ve belli süre çalışması garanti edilen hesap türleridir. Tarafımızdan verilen mail ve şifre ile giriş yapılır. Lütfen bu tür hesapların süreli olduğunu ve garanti süresi dışındaki sorumluluğun kullanıcıya ait olduğunu unutmayın.
-  </p>
-</div>
-
-<div class="products" id="productList"></div>
-
-<div class="modal" id="cartModal">
-  <div class="close" onclick="closeCart()">×</div>
-  <h2>Sepet</h2>
-  <div id="cartItems"></div>
-  <p id="total">Toplam: ₺0</p>
-  <button class="btn" onclick="goToPayment()">Ödeme Yap</button>
-</div>
-
-<!-- tüm içerik ve kartlar bitti -->
-<footer class="site-footer">
-  © 2025 Hesap Burada. Tüm hakları saklıdır.
-</footer>
-
-<script>
-  const products = [
-  { id: 1, name: "Netflix", price: 85, desc: "Premium 4K hesap. Tarafımızdan verilen mail ve şifreyle giriş yapılır. Ne çıkarsa o sistemidir. Garanti süresi: 3 gün.", logo: "https://i.hizliresim.com/sfgnsbp.png" },
-  { id: 2, name: "Exxen", price: 65, desc: "Karma Exxen hesabı. Exxen veya Exxen Spor olabilir. Mail ve şifre tarafımızdan verilir. Garanti süresi: 3 gün.", logo: "https://i.hizliresim.com/f8lp41r.png" },
-  { id: 3, name: "Disney+", price: 50, desc: "Disney+ karma üyelik. Reklamlı veya reklamsız olabilir. Giriş bilgileri tarafımızdan verilir. Garanti süresi: 1 Ay.", logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" },
-  { id: 4, name: "Max (BluTV)", price: 70, desc: "Max (BluTV) Premium üyelik. Mail ve şifre tarafımızdan verilir. Garanti süresi: 7 gün.", logo: "https://i.hizliresim.com/rgarp03.png" },
-  { id: 5, name: "Gain TV", price: 70, desc: "Gain Premium üyelik. Giriş bilgileri tarafımızdan sağlanır. Garanti süresi: 7 gün.", logo: "https://upload.wikimedia.org/wikipedia/tr/2/21/Gain_Medya_logosu.png" },
-  { id: 6, name: "Tabi Premium", price: 60, desc: "Tabi Premium üyelik. Ne çıkarsa o sistemidir. Mail ve şifre tarafımızdan verilir. Garanti süresi: 3 gün.", logo: "https://i.hizliresim.com/4wn0zh8.jpeg" }
-];
-
-  let cart = [];
-
-  const renderProducts = () => {
-  const list = document.getElementById("productList");
-  list.innerHTML = "";
-  products.forEach(p => {
-    list.innerHTML += `
-      <div class="card">
-        <img src="${p.logo}" alt="${p.name}" style="width:100px;height:auto;margin-bottom:10px;">
-        <p>${p.desc}</p>
-        <div class="price">₺${p.price}</div>
-        <button onclick="addToCart(${p.id})">Sepete Ekle</button>
+  <div class="container">
+    <div class="banks">
+      <div class="bank ziraat">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Ziraat_Bankas%C4%B1_logo.png" alt="Ziraat Bankası">
+        <h3>Berkay Taşkan</h3>
+        <div class="iban-box" id="ibanZiraat">TR18000100000000123456789001</div>
+        <button class="copy-btn" onclick="kopyala('ibanZiraat', 'Ziraat Bankası')">IBAN Kopyala</button>
       </div>
-    `;
-  });
-};
 
-  const addToCart = (id) => {
-    const existing = cart.find(x => x.id === id);
-    if (existing) {
-      existing.qty++;
-    } else {
-      const product = products.find(p => p.id === id);
-      cart.push({ ...product, qty: 1 });
+      <div class="bank garanti">
+        <img src="https://upload.wikimedia.org/wikipedia/tr/7/75/Garanti_BBVA.png" alt="Garanti Bankası">
+        <h3>Berkay Taşkan</h3>
+        <div class="iban-box" id="ibanGaranti">TR72000620000000012345678901</div>
+        <button class="copy-btn" onclick="kopyala('ibanGaranti', 'Garanti Bankası')">IBAN Kopyala</button>
+      </div>
+    </div>
+
+    <input type="number" id="bakiye" placeholder="Ne kadar ödeme yaptınız? ₺">
+
+    <div class="info">
+      <strong>Önemli:</strong> Ödeme yaptıktan sonra lütfen WhatsApp üzerinden bize bildiriniz.
+    </div>
+
+    <button class="btn" onclick="odemeGonder()">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png"/> Ödeme Yaptım
+    </button>
+  </div>
+
+  <footer>© 2025 Berkay Store. Tüm hakları saklıdır.</footer>
+
+  <script>
+    let sonSecilenBanka = '';
+    let sonIban = '';
+
+    function kopyala(id, bankaAdi) {
+      const iban = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(iban).then(() => {
+        Swal.fire('Kopyalandı!', iban + ' panoya kopyalandı.', 'success');
+        sonSecilenBanka = bankaAdi;
+        sonIban = iban;
+      });
     }
-    showCart();
-  };
 
-  const updateCart = () => {
-    const cartItems = document.getElementById("cartItems");
-    const total = document.getElementById("total");
-    cartItems.innerHTML = "";
-    let sum = 0;
-    cart.forEach(item => {
-      sum += item.price * item.qty;
-      cartItems.innerHTML += `
-        <div class="item">
-          ${item.name} x${item.qty} - ₺${item.price * item.qty}
-          <div class="controls">
-            <button onclick="changeQty(${item.id}, -1)">–</button>
-            <button onclick="changeQty(${item.id}, 1)">+</button>
-            <button onclick="removeItem(${item.id})">
-  <img src="https://i.hizliresim.com/3updiec.png" width="20" height="20" alt="Sil">
-</button>
-          </div>
-        </div>
-      `;
-    });
-    total.innerText = "Toplam: ₺" + sum;
-  };
+    function odemeGonder() {
+      const bakiye = document.getElementById('bakiye').value.trim();
 
-  const changeQty = (id, change) => {
-    const item = cart.find(x => x.id === id);
-    if (!item) return;
-    item.qty += change;
-    if (item.qty <= 0) {
-      cart = cart.filter(x => x.id !== id);
+      if (!bakiye || parseFloat(bakiye) <= 0) {
+        Swal.fire('Eksik Bilgi', 'Lütfen geçerli bir tutar girin.', 'warning');
+        return;
+      }
+
+      if (!sonSecilenBanka || !sonIban) {
+        Swal.fire('IBAN Seçilmedi', 'Lütfen önce IBAN kopyalayınız.', 'error');
+        return;
+      }
+
+      const mesaj = `📄 Sipariş Detayları \n\n🏦 *Banka:* ${sonSecilenBanka}\n🔢 *İBAN:* ${sonIban}\n💸 *Tutar:* ${bakiye}₺\n\nMerhaba Ben Ödeme Yaptım.`;
+      const url = `https://wa.me/447442525362?text=${encodeURIComponent(mesaj)}`;
+      window.location.href = url; // ✅ EN SAĞLAMI!
     }
-    updateCart();
-  };
-
-  const removeItem = (id) => {
-    cart = cart.filter(x => x.id !== id);
-    updateCart();
-  };
-
-  const showCart = () => {
-    document.getElementById("cartModal").style.display = "block";
-    updateCart();
-  };
-
-  const closeCart = () => {
-    document.getElementById("cartModal").style.display = "none";
-  };
-
-  const goToPayment = () => {
-    const summary = cart.map(item => `- ${item.name} x${item.qty} - ₺${item.price * item.qty}`).join("\n");
-    const total = cart.reduce((a, b) => a + b.price * b.qty, 0);
-    localStorage.setItem("siparisUrunler", summary);
-    localStorage.setItem("siparisTutar", total);
-    window.location.href = "odeme.html";
-  };
-
-  renderProducts();
-</script>
-
+  </script>
 </body>
 </html>
